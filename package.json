@@ -1,7 +1,7 @@
 {
-  "name": "product-order-manager-api",
+  "name": "product-order-api",
   "version": "1.0.0",
-  "description": "An API for managing product orders",
+  "description": "An API for product orders",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"

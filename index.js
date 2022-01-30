@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
   res.send('Namaste');
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`The server is listening at http://localhost:${port}`);
 });
