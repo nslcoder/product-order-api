@@ -1,6 +1,6 @@
 const { fetchOrders } = require('../services');
 
-const gerOrders = async (req, res) => {
+const getOrders = async (req, res) => {
   try {
     const orders = await fetchOrders();
     res.status(200).send(orders);
@@ -8,3 +8,5 @@ const gerOrders = async (req, res) => {
     res.send(error);
   }
 };
+
+module.exports = { getOrders };
