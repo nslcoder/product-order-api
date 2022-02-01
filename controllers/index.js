@@ -1,8 +1,10 @@
+const { fetchOrders } = require('../services');
+
 const gerOrders = async (req, res) => {
   try {
-    const orders = await OrderService.getOrders({});
+    const orders = await fetchOrders();
     res.status(200).send(orders);
   } catch (error) {
-    console.log(error);
+    res.send(error);
   }
 };
