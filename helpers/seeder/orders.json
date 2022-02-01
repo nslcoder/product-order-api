@@ -1,0 +1,52 @@
+[
+  {
+    "customer": "Ram Tamang",
+    "size": 3,
+    "items": ["mobiles", "shoes", "desks"]
+  },
+  {
+    "customer": "Reshma KC",
+    "size": 3,
+    "items": ["laptop", "shoes", "bags"]
+  },
+  {
+    "customer": "Aryan Magar",
+    "size": 2,
+    "items": ["chairs", "slippers"]
+  },
+  {
+    "customer": "Dave Brown",
+    "size": 1,
+    "items": ["towels"]
+  },
+  {
+    "customer": "Jennifer Karki",
+    "size": 4,
+    "items": ["ear rings", "watches", "books", "jacket"]
+  },
+  {
+    "customer": "Hero Gurung",
+    "size": 2,
+    "items": ["shoes", "desks"]
+  },
+  {
+    "customer": "Devi Tamang",
+    "size": 1,
+    "items": ["mobiles"]
+  },
+  {
+    "customer": "Shyam Shah",
+    "size": 5,
+    "items": ["computer", "shoes", "pants", "wallet", "bottle"]
+  },
+  {
+    "customer": "Rama Khad",
+    "size": 2,
+    "items": ["notebooks", "pens"]
+  },
+  {
+    "customer": "Bikram Yadav",
+    "size": 3,
+    "items": ["blankets", "motorcycles", "hats"]
+  }
+]
