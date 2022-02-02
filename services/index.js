@@ -1,5 +1,6 @@
 const Order = require('../models/order');
 
+// Retrieve the orders
 const fetchOrders = async () => {
   try {
     return await Order.find({});
@@ -8,4 +9,13 @@ const fetchOrders = async () => {
   }
 };
 
-module.exports = { fetchOrders };
+// Return a single order by its id
+const fetchOrderById = async (id) => {
+  try {
+    return await Order.findById(id);
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { fetchOrders, fetchOrderById };
