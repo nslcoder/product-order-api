@@ -1,4 +1,4 @@
-const { fetchOrders, fetchOrderById } = require('../services');
+const { fetchOrders, fetchOrderById, createOrder } = require('../services');
 
 // Call a service to get the orders
 const getOrders = async (req, res) => {
@@ -20,4 +20,13 @@ const getOrderById = async (req, res) => {
   }
 };
 
-module.exports = { getOrders, getOrderById };
+// Call a service to create an order
+const postOrder = async (req, res) => {
+  try {
+    const orderData = req.body;
+    const message = await createOrder(orderData);
+    res.status(200).send({ message });
+  } catch (error) {}
+};
+
+module.exports = { getOrders, getOrderById, postOrder };

@@ -18,4 +18,14 @@ const fetchOrderById = async (id) => {
   }
 };
 
-module.exports = { fetchOrders, fetchOrderById };
+// Create an order
+const createOrder = async (order) => {
+  try {
+    await Order.create(order);
+    return 'Order is created';
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { fetchOrders, fetchOrderById, createOrder };
