@@ -28,4 +28,41 @@ const createOrder = async (order) => {
   }
 };
 
-module.exports = { fetchOrders, fetchOrderById, createOrder };
+// Update an order
+const amendOrderById = async (id, orderUpdate) => {
+  try {
+    await Order.findByIdAndUpdate(id, orderUpdate);
+    return 'Order is updated';
+  } catch (error) {
+    return error;
+  }
+};
+
+// Delete an order
+const eraseOrderById = async (id) => {
+  try {
+    await Order.findByIdAndDelete(id);
+    return 'Order is deleted';
+  } catch (error) {
+    return error;
+  }
+};
+
+// Delete orders
+const eraseOrders = async () => {
+  try {
+    await Order.deleteMany({});
+    return 'Orders are deleted';
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = {
+  fetchOrders,
+  fetchOrderById,
+  createOrder,
+  amendOrderById,
+  eraseOrderById,
+  eraseOrders,
+};

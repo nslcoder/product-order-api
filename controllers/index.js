@@ -1,4 +1,11 @@
-const { fetchOrders, fetchOrderById, createOrder } = require('../services');
+const {
+  fetchOrders,
+  fetchOrderById,
+  createOrder,
+  amendOrderById,
+  eraseOrderById,
+  eraseOrders,
+} = require('../services');
 
 // Call a service to get the orders
 const getOrders = async (req, res) => {
@@ -23,10 +30,48 @@ const getOrderById = async (req, res) => {
 // Call a service to create an order
 const postOrder = async (req, res) => {
   try {
-    const orderData = req.body;
-    const message = await createOrder(orderData);
-    res.status(200).send({ message });
-  } catch (error) {}
+    const message = await createOrder(req.body);
+    res.status(201).send({ message });
+  } catch (error) {
+    res.send(error);
+  }
 };
 
-module.exports = { getOrders, getOrderById, postOrder };
+// Call a service to update an order
+const updateOrderById = async (req, res) => {
+  try {
+    const message = await amendOrderById(req.params.id, req.body);
+    res.status(200).send({ message });
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+// Call a service to delete an order
+const deleteOrderById = async (req, res) => {
+  try {
+    const message = await eraseOrderById(req.params.id);
+    res.status(200).send({ message });
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+// Call a service to delete the orders
+const deleteOrders = async (req, res) => {
+  try {
+    const message = await eraseOrders();
+    res.status(200).send({ message });
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+module.exports = {
+  getOrders,
+  getOrderById,
+  postOrder,
+  updateOrderById,
+  deleteOrderById,
+  deleteOrders,
+};
