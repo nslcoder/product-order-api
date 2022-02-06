@@ -13,6 +13,7 @@ app.use(express.json());
 // Connect to the local MongoDB database
 connectDB();
 
+// Routes
 app.get('/', (req, res) => {
   res.send('Namaste');
 });

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { postValidator, putValidator } = require('../middlewares/validator');
 
 const {
   getOrders,
@@ -12,8 +13,8 @@ const {
 
 router.get('/', getOrders);
 router.get('/:id', getOrderById);
-router.post('/', postOrder);
-router.put('/:id', updateOrderById);
+router.post('/', postValidator, postOrder);
+router.put('/:id', putValidator, updateOrderById);
 router.delete('/:id', deleteOrderById);
 router.delete('/', deleteOrders);
 
