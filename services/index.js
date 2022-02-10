@@ -1,9 +1,23 @@
 const Order = require('../models/order');
 
 // Retrieve the orders
-const fetchOrders = async () => {
+const fetchOrders = async (skip, limit, filter, sort) => {
   try {
-    return await Order.find({});
+    if (filter && sort) {
+      return await Order.find({ size: filter })
+        .sort({ customer: sort })
+        .skip(skip)
+        .limit(limit);
+    } else if (filter) {
+      return await Order.find({ size: filter }).skip(skip).limit(limit);
+    } else if (sort) {
+      return await Order.find({})
+        .sort({ customer: sort })
+        .skip(skip)
+        .limit(limit);
+    } else {
+      return await Order.find({}).skip(skip).limit(limit);
+    }
   } catch (error) {
     return error;
   }

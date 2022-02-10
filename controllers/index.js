@@ -9,8 +9,12 @@ const {
 
 // Call a service to get the orders
 const getOrders = async (req, res) => {
+  const { page, filter, sort } = req.query;
+  const limit = 5;
+  const skip = (page - 1) * limit;
+
   try {
-    const orders = await fetchOrders();
+    const orders = await fetchOrders(skip, limit, filter, sort);
     res.status(200).send(orders);
   } catch (error) {
     res.send(error);
