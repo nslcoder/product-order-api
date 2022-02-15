@@ -9,7 +9,7 @@ const {
 
 // Call a service to get the orders
 const getOrders = async (req, res) => {
-  const { page, filter, sort } = req.query;
+  const { page = 1, filter, sort } = req.query;
   const limit = 5;
   const skip = (page - 1) * limit;
 
